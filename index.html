@@ -1,23 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="src/styles.css" />
     <title>Winnie's weather app</title>
-  </head>
-  <body>
-    <div>
-      <h1>Hello world</h1>
-      <a href="" class="btn btn-primary">click me</a>
-    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
 
+<body>
+    <div class="container">
+        <h1>
+            <span class="emoji">
+                ☀️
+            </span>
+            <br />
+            Sunny
+        </h1>
+        <h2>
+            <div class="form">
+                <form id="city-form">
+                    <input type="text" id="city-input" placeholder="Search a city" autocomplete="off">
+                    <input type="submit" value="🔍">
+                </form>
+                <hr>
+
+                <span class="city" id="current-city"> <em>Addis Ababa</em> </span>
+                <br />
+                <span class="date" id="current-date">
+                    Sunday, 11 Oct 2020 </span><br />
+                <span class="time" id="current-time">
+                    1:45pm
+                </span> <br>
+                <span class="currentbutton"><button type="submit" class="btn" id="current-button" value="Search">Current
+                        Location</button>
+
+                </span>
+
+        </h2>
+
+        <p class="temperature">
+            <span class="temp" id="current-temp"></span>
+            <span class="tempUnit">
+                <button class="unit" id="temp-c">
+                    °C
+                </button> <span class="slash">/</span>
+                <button class="unit" id="temp-f">
+                    °F
+                </button>
+            </span>
+        </p>
+        <button class="audio">
+            🔊
+        </button>
+
+        <hr />
+        <div class="row">
+            <div class="col">
+                Wednesday <br />
+                ☀️ <br />
+                75°
+            </div>
+            <div class="col">
+                Thursday <br />
+                🌤 <br />
+                71°
+            </div>
+            <div class="col">
+                Friday <br />
+                🌧<br />
+                69°
+            </div>
+            <div class="col">
+                Saturday <br />
+                🌧<br />
+                68°
+            </div>
+            <div class="col">
+                Sunday <br />
+                ⛈<br />
+                68°
+            </div>
+            <br />
+
+
+
+        </div>
+    </div>
+    </div>
+    </div>
     <script src="src/index.js"></script>
-  </body>
+</body>
+
 </html>
