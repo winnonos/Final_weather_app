@@ -13,46 +13,55 @@
 
 <body>
     <div class="container">
-        <h1>
-            <span class="emoji">
-                ☀️
-            </span>
-            <br />
-            Sunny
-        </h1>
-        <h2>
-            <div class="form">
-                <form id="city-form">
-                    <input type="text" id="city-input" placeholder="Search a city" autocomplete="off">
-                    <input type="submit" value="🔍">
-                </form>
-                <hr>
-
-                <span class="city" id="current-city"> <em>Addis Ababa</em> </span>
-                <br />
-                <span class="date" id="current-date">
-                    Sunday, 11 Oct 2020 </span><br />
-                <span class="time" id="current-time">
-                    1:45pm
-                </span> <br>
-                <span class="currentbutton"><button type="submit" class="btn" id="current-button" value="Search">Current
-                        Location</button>
-
-                </span>
-
-        </h2>
-
-        <p class="temperature">
-            <span class="temp" id="current-temp"></span>
-            <span class="tempUnit">
-                <button class="unit" id="temp-c">
-                    °C
-                </button> <span class="slash">/</span>
-                <button class="unit" id="temp-f">
-                    °F
-                </button>
-            </span>
-        </p>
+        <div class="Weather-app">
+            <div class="row">
+                <div class="col-6">
+                    <h1>
+                        <div class="form location">
+                            <form id="city-form">
+                                <input type="text" id="city-input" placeholder="Search a city" autocomplete="off">
+                                <input type="submit" value="🔍">
+                            </form> <br>
+                            <span class="city" id="current-city"> <em>Addis Ababa</em> </span>
+                            <br />
+                            <span class="date" id="current-date">
+                                Sunday, 11 Oct 2020 </span><br />
+                            <span class="time" id="current-time">
+                                1:45pm
+                            </span>
+                        </div>
+                        </h1>
+                 </div>
+                 <div class="col-6">
+                    <div class="currentbutton"><button type="submit" class="btn" id="current-button" value="Search">Current
+                            Location</button></div>
+                    <ul>
+                        <li>
+                            Feels like:
+                        </li>
+                        <li>
+                            Humidity:
+                        </li>
+                        <li>
+                            Wind:
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+                <p class="temperature">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Clear">
+                    <span class="temp" id="current-temp"></span>
+                    <span class="tempUnit">
+                        <button class="unit" id="temp-c">
+                            °C
+                        </button> <span class="slash">/</span>
+                        <button class="unit" id="temp-f">
+                            °F
+                        </button>
+                    </span>
+                </p>
+           
+        
         <button class="audio">
             🔊
         </button>
@@ -85,13 +94,14 @@
                 68°
             </div>
             <br />
-
-
-
         </div>
     </div>
     </div>
     </div>
+    </div>
+    <small> 
+        <a href="https://github.com/winnonos/Final_weather_app">Open source code</a> by Wintana Belai and hosted on <a href="https://lucid-joliot-312dd6.netlify.app">Netlify</a>
+    </small>
     <script src="src/index.js"></script>
 </body>
 

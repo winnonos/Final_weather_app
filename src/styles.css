@@ -7,10 +7,11 @@ body {
 }
 
 h1 {
-  display: inline-block;
-  font-size: 25px;
-  color: #ffffff;
-  padding: 50px;
+  text-align: left;
+  top: 120px;
+  right: 120px;
+  font-size: 28px;
+  color: white;
   font-weight: lighter;
 }
 
@@ -19,18 +20,19 @@ h1 {
   padding: 0;
 }
 h2 {
-  text-align: right;
+  text-align: left;
   position: fixed;
   top: 120px;
   right: 120px;
   font-size: 28px;
-  color: #ffffff;
+  color: white;
   font-weight: lighter;
 }
 
 .form {
   font-size: 24px;
 }
+
 .tempUnit {
   display: block;
   margin: 0 auto;
