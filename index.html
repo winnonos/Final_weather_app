@@ -1,108 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Winnie's weather app</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
+      <div class="weather-app-wrapper">
         <div class="Weather-app">
-            <div class="row">
-                <div class="col-6">
-                    <h1>
-                        <div class="form location">
-                            <form id="city-form">
-                                <input type="text" id="city-input" placeholder="Search a city" autocomplete="off">
-                                <input type="submit" value="🔍">
-                            </form> <br>
-                            <span class="city" id="current-city"> <em>Addis Ababa</em> </span>
-                            <br />
-                            <span class="date" id="current-date">
-                                Sunday, 11 Oct 2020 </span><br />
-                            <span class="time" id="current-time">
-                                1:45pm
-                            </span>
-                        </div>
-                        </h1>
-                 </div>
-                 <div class="col-6 descriptions">
-                    <div class="currentbutton"><button type="submit" class="btn" id="current-button" value="Search">Current
-                            Location</button></div> <br>
-                    <ul>
-                        <li>
-                            Feels like:
-                        </li>
-                        <li>
-                            Humidity:
-                        </li>
-                        <li>
-                            Wind:
-                        </li>
-                    </ul>
-                 </div>
+          <div class="row">
+            <div class="col-6">
+              <h1>
+                <div class="form location">
+                  <form id="city-form">
+                    <input
+                      type="text"
+                      id="city-input"
+                      placeholder="Search a city"
+                      autocomplete="off"
+                    />
+                    <input type="submit" value="🔍" />
+                  </form>
+                  <br />
+                  <span class="city" id="current-city">
+                    <em>Addis Ababa</em>
+                  </span>
+                  <br />
+                  <span class="date" id="current-date">
+                    Sunday, 11 Oct 2020 </span
+                  ><br />
+                  <span class="time" id="current-time"> 1:45pm </span>
+                </div>
+              </h1>
             </div>
-                <p class="temperature">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Clear">
-                    <span class="temp" id="current-temp"></span>
-                    <span class="tempUnit">
-                        <button class="unit" id="temp-c">
-                            °C
-                        </button> <span class="slash">/</span>
-                        <button class="unit" id="temp-f">
-                            °F
-                        </button>
-                    </span>
-                </p>
-           
-        
-        <button class="audio">
-            🔊
-        </button>
+            <div class="col-6 descriptions">
+              <div class="currentbutton">
+                <button
+                  type="submit"
+                  class="btn"
+                  id="current-button"
+                  value="Search"
+                >
+                  Current Location
+                </button>
+              </div>
+              <br />
+              <ul>
+                <li>Feels like: 10 °C</li>
+                <li>Humidity: 73%</li>
+                <li>Wind: 2 km/h</li>
+              </ul>
+            </div>
+          </div>
+          <p class="temperature">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="Clear"
+            />
+            <span class="temp" id="current-temp">12 °C | °F</span>
+            <span class="tempUnit">
+              <button class="unit" id="temp-c">°C</button>
+              <span class="slash">/</span>
+              <button class="unit" id="temp-f">°F</button>
+            </span>
+          </p>
 
-        <hr />
-        <div class="row">
+          <button class="audio">🔊</button>
+
+          <hr />
+          <div class="row">
             <div class="col">
-                Wednesday <br />
-                ☀️ <br />
-                75°
+              Wednesday <br />
+              ☀️ <br />
+              75°
             </div>
             <div class="col">
-                Thursday <br />
-                🌤 <br />
-                71°
+              Thursday <br />
+              🌤 <br />
+              71°
             </div>
             <div class="col">
-                Friday <br />
-                🌧<br />
-                69°
+              Friday <br />
+              🌧<br />
+              69°
             </div>
             <div class="col">
-                Saturday <br />
-                🌧<br />
-                68°
+              Saturday <br />
+              🌧<br />
+              68°
             </div>
             <div class="col">
-                Sunday <br />
-                ⛈<br />
-                68°
+              Sunday <br />
+              ⛈<br />
+              68°
             </div>
             <br />
+          </div>
         </div>
+      </div>
+      <small class="reference">
+        <a href="https://github.com/winnonos/Final_weather_app"
+          >Open source code</a
+        >
+        by Wintana Belai and hosted on
+        <a href="https://lucid-joliot-312dd6.netlify.app">Netlify</a>
+      </small>
     </div>
-    </div>
-    </div>
-    </div>
-    <small> 
-        <a href="https://github.com/winnonos/Final_weather_app">Open source code</a> by Wintana Belai and hosted on <a href="https://lucid-joliot-312dd6.netlify.app">Netlify</a>
-    </small>
     <script src="src/index.js"></script>
-</body>
-
+  </body>
 </html>

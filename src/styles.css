@@ -1,13 +1,15 @@
-.container {
-  border: 0.5px white solid;
-  background: linear-gradient(black, #2c4158);
-}
-.weather-app {
+.weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
-  padding: 20px;
   border: 0.5px white solid;
   background: linear-gradient(black, #2c4158);
+  margin-bottom: 0px;
+}
+
+.weather-app {
+  padding: 20px;
+  border: 0.5px white solid;
+  margin-bottom: 0px;
 }
 h1 {
   text-align: left;
@@ -66,8 +68,8 @@ li {
 }
 
 .temperature {
-  display: inline-block;
-  margin: 10px 445px;
+  display: block;
+  margin: 0 auto;
   font-size: 48px;
   text-align: center;
   font-weight: lighter;
@@ -101,7 +103,7 @@ li {
   display: block;
   margin: 0 auto;
   text-align: center;
-  font-size: 12px;
+  font-size: 5px;
 }
 
 .audio {
@@ -112,6 +114,10 @@ li {
   border: 0.5px solid grey;
   border-radius: 50%;
   padding: 5px 10px;
+}
+
+.container {
+  text-align: center;
 }
 
 hr {
