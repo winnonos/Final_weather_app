@@ -46,10 +46,6 @@ li::first-letter {
   font-size: 24px;
 }
 
-.tempUnit {
-  display: block;
-  margin: 0 auto;
-}
 .city {
   font-weight: bold;
   font-size: 20px;
@@ -88,15 +84,6 @@ li::first-letter {
 .units {
   font-size: 22px;
 }
-.unit {
-  font-size: 22px;
-  font-weight: lighter;
-  border: none;
-  background-color: transparent;
-  border-radius: 50%;
-  padding: 5px 10px;
-  color: white;
-}
 
 .slash {
   font-size: 22px;
@@ -131,7 +118,15 @@ li::first-letter {
   text-align: center;
 }
 
+.units .active {
+  color: white;
+  cursor: default;
+}
+
+.units .active:hover {
+  text-decoration: none;
+
+
 hr {
   color: white;
-  background-color: ;
 }
