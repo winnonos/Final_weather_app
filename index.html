@@ -33,13 +33,11 @@
                   </form>
                   <br />
                   <span class="city" id="current-city">
-                    <em>Addis Ababa</em>
+                    <em></em>
                   </span>
                   <br />
-                  <span class="date" id="current-date">
-                    Sunday, 11 Oct 2020 </span
-                  ><br />
-                  <span class="time" id="current-time"> 1:45pm </span>
+                  <span class="date" id="current-date"> </span><br />
+                  <span class="time" id="current-time"> </span> <br />
                 </div>
               </h1>
             </div>
@@ -55,10 +53,14 @@
                 </button>
               </div>
               <br />
+              <br />
               <ul>
-                <li>Feels like: 10 °C</li>
-                <li>Humidity: 73%</li>
-                <li>Wind: 2 km/h</li>
+                <li>Feels like: <span id="feels-like"></span> °C</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind speed: <span id="wind-speed"></span> km/hr</li>
+                <li class="Condition">
+                  <span id="condition"><em>Cloudy</em></span>
+                </li>
               </ul>
             </div>
           </div>
@@ -67,15 +69,15 @@
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt="Clear"
             />
-            <span class="temp" id="current-temp">12 °C | °F</span>
+
+            <br />
+            <span class="temp" id="current-temp"> 12</span> °C | °F
             <span class="tempUnit">
               <button class="unit" id="temp-c">°C</button>
               <span class="slash">/</span>
               <button class="unit" id="temp-f">°F</button>
             </span>
           </p>
-
-          <button class="audio">🔊</button>
 
           <hr />
           <div class="row">

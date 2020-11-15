@@ -49,7 +49,6 @@ function searchCity(event) {
   let city = document.querySelector("#city-input");
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = `${city.value}`;
-
   let units = "metric";
   let apiKey = "e1d312b915e056eb1a20e8be1c78c46a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=${units}`;
@@ -60,7 +59,16 @@ function displayTemperature(response) {
   let celsiusTemp = Math.round(response.data.main.temp);
   let tempNow = document.querySelector("#current-temp");
   tempNow.innerHTML = `${celsiusTemp} °C`;
+  let conditionElement = document.querySelector("#condition");
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
+  conditionElement.innerHTML = response.data.weather[0].description;
 }
+
 let searchCityForm = document.querySelector("#city-form");
 searchCityForm.addEventListener("submit", searchCity);
 
