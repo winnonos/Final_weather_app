@@ -15,7 +15,7 @@ h1 {
   text-align: left;
   top: 120px;
   right: 120px;
-  font-size: 24px;
+  font-size: 10px;
   color: white;
   font-weight: lighter;
 }
@@ -28,6 +28,10 @@ li {
   color: white;
   font-weight: lighter;
   text-align: right;
+}
+
+li::first-letter {
+  text-transform: capitalize;
 }
 
 .descriptions {
@@ -48,14 +52,16 @@ li {
 }
 .city {
   font-weight: bold;
+  font-size: 20px;
 }
 
 .date {
   font-weight: lighter;
+  font-size: 20px;
 }
 .time {
   text-align: right;
-  font-size: 22px;
+  font-size: 20px;
   color: #ffffff;
   font-weight: lighter;
 }
