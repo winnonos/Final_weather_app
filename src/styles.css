@@ -82,8 +82,11 @@ li::first-letter {
   text-align: center;
   font-weight: lighter;
   color: #ffffff;
+  top: -34px;
+}
 
-  padding: 20px 52px;
+.units {
+  font-size: 22px;
 }
 .unit {
   font-size: 22px;
