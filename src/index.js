@@ -131,40 +131,20 @@ function showPosition(position) {
   let units = "metric";
   let apiKey = "e1d312b915e056eb1a20e8be1c78c46a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`;
-  axios.get(`${apiUrl}&appid=${apiKey}&units=${units}`).then(showTemperature);
-}
-navigator.geolocation.getCurrentPosition(showPosition);
+  axios
+    .get(`${apiUrl}&appid=${apiKey}&units=${units}`)
+    .then(displayTemperature);
 
-function showTemperature(response) {
-  console.log(response);
-  console.log(response.data.main.temp);
-  console.log(response.data.name);
-
-  function showCurrentTemperature() {
-    let currentTemp = Math.round(response.data.main.temp);
-    let currentLocation = response.data.name;
-    console.log(currentLocation);
-    let location = document.querySelector("#current-city");
-    location.innerHTML = `${currentLocation}`;
-    let temperature = document.querySelector("#current-temp");
-    temperature.innerHTML = `${currentTemp}`;
-    let conditionElement = document.querySelector("#condition");
-    let feelsLikeElement = document.querySelector("#feels-like");
-    let humidityElement = document.querySelector("#humidity");
-    let windSpeedElement = document.querySelector("#wind-speed");
-    let iconElement = document.querySelector("#icon");
-    feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
-    humidityElement.innerHTML = response.data.main.humidity;
-    windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
-    conditionElement.innerHTML = response.data.weather[0].description;
-    iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-    iconElement.setAttribute("alt", response.data.weather[0].description);
-  }
-  let currentLocationButton = document.querySelector("#current-button");
-  currentLocationButton.addEventListener("click", showCurrentTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
+
+function showCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let currentLocationButton = document.querySelector("#current-button");
+currentLocationButton.addEventListener("click", showCurrentLocation);
 
 search("Addis Ababa");
