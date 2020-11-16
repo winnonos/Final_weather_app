@@ -33,9 +33,10 @@
                   </form>
                   <br />
                   <span class="city" id="current-city">
-                    <em>Last updated</em>
+                    <em></em>
                   </span>
                   <br />
+                  <span class="last-update">Last updated:</span>
                   <span class="date" id="current-date"> </span><br />
                   <span class="time" id="current-time"> </span> <br />
                 </div>
@@ -80,33 +81,21 @@
           </p>
 
           <hr />
-          <div class="row">
-            <div class="col">
-              Wednesday <br />
-              ☀️ <br />
-              75°
+          <div class="row weather-forecast" id="forecast">
+            <div class="col-2">
+              <h2>12:00</h2>
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                class="forecast-img"
+              />
+              <div class="forecast-temp">
+                <h3>
+                  <span class="min-temp">16°</span> |
+                  <span class="max-temp">16°</span>
+                </h3>
+              </div>
             </div>
-            <div class="col">
-              Thursday <br />
-              🌤 <br />
-              71°
-            </div>
-            <div class="col">
-              Friday <br />
-              🌧<br />
-              69°
-            </div>
-            <div class="col">
-              Saturday <br />
-              🌧<br />
-              68°
-            </div>
-            <div class="col">
-              Sunday <br />
-              ⛈<br />
-              68°
-            </div>
-            <br />
           </div>
         </div>
       </div>

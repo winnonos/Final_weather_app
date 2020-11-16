@@ -1,8 +1,5 @@
-function formatDate() {
-  let now = new Date();
-  let currentDate = document.querySelector("#current-date");
-  let currentTime = document.querySelector("#current-time");
-  let date = now.getDate();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -13,22 +10,12 @@ function formatDate() {
     "Saturday",
   ];
   let day = days[now.getDay()];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = months[now.getMonth()];
-  let year = now.getFullYear();
+  let dateNow = document.querySelector("#current-date");
+  dateNow.innerHTML = `${day}`;
+  return `${day} ${formatHours(timestamp)}`;
+}
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -37,26 +24,13 @@ function formatDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let todayDate = `${day}, ${date} ${month} ${year}`;
-  let timeNow = `${hours}:${minutes}`;
-  currentDate.innerHTML = todayDate;
-  currentTime.innerHTML = timeNow;
-}
-formatDate();
-
-function searchCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-input");
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = `${city.value}`;
-  let units = "metric";
-  let apiKey = "e1d312b915e056eb1a20e8be1c78c46a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=${units}`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
+  return `${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
   let tempNow = document.querySelector("#current-temp");
+  let cityNow = document.querySelector("#current-city");
+  let dateNow = document.querySelector("#current-date");
   let feelsLikeElement = document.querySelector("#feels-like");
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
@@ -65,7 +39,9 @@ function displayTemperature(response) {
 
   celsiusTemperature = Math.round(response.data.main.temp);
 
+  cityNow.innerHTML = response.data.name;
   tempNow.innerHTML = `${celsiusTemperature}`;
+  dateNow.innerHTML = formatDate(response.data.dt * 1000);
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   humidityElement.innerHTML = response.data.main.humidity;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
@@ -77,8 +53,52 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h2>${formatHours(forecast.dt * 1000)}</h2>
+      <img
+        src="https://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png""
+        alt=""
+        class="forecast-img"
+      />
+      <div class="forecast-temp">
+        <h3>
+          <span class="max-temp">${Math.round(forecast.main.temp_max)}°</span> |
+          <span class="min-temp">${Math.round(forecast.main.temp_min)}°</span>
+        </h3>
+      </div>
+    </div>
+  `;
+  }
+}
+function search(city) {
+  let units = "metric";
+  let apiKey = "e1d312b915e056eb1a20e8be1c78c46a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function submitCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input");
+  search(city.value);
+  //let currentCity = document.querySelector("#current-city");
+  //currentCity.innerHTML = `${city.value}`;
+}
 let searchCityForm = document.querySelector("#city-form");
-searchCityForm.addEventListener("submit", searchCity);
+searchCityForm.addEventListener("submit", submitCity);
 
 //Unit conversion
 function showTempCelsius(event) {
@@ -102,6 +122,7 @@ function showTempFahrenheit(event) {
 
 let fahrenheitLink = document.querySelector("#Fahrenheit-link");
 fahrenheitLink.addEventListener("click", showTempFahrenheit);
+
 let celsiusTemperature = null;
 
 function showPosition(position) {
@@ -145,3 +166,5 @@ function showTemperature(response) {
   let currentLocationButton = document.querySelector("#current-button");
   currentLocationButton.addEventListener("click", showCurrentTemperature);
 }
+
+search("Addis Ababa");

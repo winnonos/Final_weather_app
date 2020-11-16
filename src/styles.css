@@ -15,9 +15,24 @@ h1 {
   text-align: left;
   top: 120px;
   right: 120px;
-  font-size: 10px;
   color: white;
   font-weight: lighter;
+}
+
+h2 {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  font-weight: lighter;
+  margin: 0 auto;
+}
+
+h3 {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  font-weight: lighter;
+  margin: 0 auto;
 }
 ul {
   margin: 0;
@@ -97,23 +112,6 @@ li::first-letter {
   font-weight: lighter;
 }
 
-.form mb-3 {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 5px;
-}
-
-.audio {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  background: white;
-  border: 0.5px solid grey;
-  border-radius: 50%;
-  padding: 5px 10px;
-}
-
 .container {
   text-align: center;
 }
@@ -125,8 +123,19 @@ li::first-letter {
 
 .units .active:hover {
   text-decoration: none;
-
+}
 
 hr {
   color: white;
+}
+
+.forecast-img {
+  display: block;
+  margin: 0 auto;
+  padding: 0px;
+  text-align: center;
+}
+
+.last-update {
+  font-size: 20px;
 }
